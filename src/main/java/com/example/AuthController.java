@@ -53,7 +53,7 @@ public class AuthController {
         }
 
         try {
-            userService.registerUser(signupForm.getUsername(), signupForm.getPassword(), signupForm.getMailAddress());
+            userService.registerUser(signupForm.getUsername(), signupForm.getPassword(), signupForm.getMailAddress(), signupForm.getPhoneNumber());
         } catch (DataIntegrityViolationException e) {
             model.addAttribute("signupError", true);
             return "signup";

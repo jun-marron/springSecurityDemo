@@ -48,9 +48,13 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private boolean mailAddressVerified;
+    
+    @Column(nullable = false)
+    private int phoneNumber;
 
     @Column(nullable = false)
     private boolean enabled;
+    
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -63,11 +67,12 @@ public class User implements UserDetails {
     // JPA requirement
     protected User() {}
 
-    public User(String username, String password, String mailAddress) {
+    public User(String username, String password, String mailAddress, int phoneNumber) {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
         this.mailAddressVerified = false;
+        this.phoneNumber = phoneNumber;
         this.enabled = true;
         this.authorities = EnumSet.of(Authority.ROLE_USER);
     }
@@ -129,6 +134,14 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public int getPhoneNumber() {
+    	return phoneNumber;
+    }
+    
+    public void setPhoneNumber(int phoneNumber) {
+    	this.phoneNumber = phoneNumber;
     }
 
     @Override

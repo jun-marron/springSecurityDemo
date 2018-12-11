@@ -17,6 +17,9 @@ public class SignupForm {
     @Email
     @Size(min=3, max=255)
     private String mailAddress;
+    
+    @Size(min=3, max=255)
+    private int phoneNumber;
 
     public String getUsername() {
         return username;
@@ -41,5 +44,13 @@ public class SignupForm {
     public void setMailAddress(String mailAddress) {
         this.mailAddress = mailAddress;
     }
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 }
