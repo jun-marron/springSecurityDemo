@@ -1,11 +1,10 @@
 package com.example;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
 
-@SuppressWarnings("deprecation")
 public class SignupForm {
 
     @Pattern(regexp="^\\w{3,32}$", message="size must be between 3 and 32, each character must be alphanumeric or underscore (A-Za-z0-9_)")
@@ -14,12 +13,13 @@ public class SignupForm {
     @Size(min=8, max=255)
     private String password;
 
-    @Email
-    @Size(min=3, max=255)
+   
+    @Pattern(regexp = "^([\\w])+([\\w\\._-])*\\@([\\w])+([\\w\\._-])*\\.([a-zA-Z])+$")
     private String mailAddress;
-    
-    @Size(min=3, max=255)
-    private int phoneNumber;
+
+    @Digits(integer=11,fraction=0)
+	private int phoneNumber;
+
 
     public String getUsername() {
         return username;
@@ -52,5 +52,7 @@ public class SignupForm {
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	
 
 }

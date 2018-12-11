@@ -20,7 +20,7 @@
        <input type="email" id="mailAddress" name="mailAddress" />
        <em th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}">Mail Address Error</em></p>
     <p><label for="phoneNumber">phoneNumber</label>:
-       <input type="phoneNumber" id="phoneNumber" name="phoneNumber" />
+       <input type="tel" id="phoneNumber" name="phoneNumber" />
        <em th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber</em></p>   
     <p><input type="submit" value="Sign up" /></p>
 </form>

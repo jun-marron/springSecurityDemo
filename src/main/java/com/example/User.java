@@ -49,7 +49,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private boolean mailAddressVerified;
     
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private int phoneNumber;
 
     @Column(nullable = false)
@@ -135,14 +135,6 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public int getPhoneNumber() {
-    	return phoneNumber;
-    }
-    
-    public void setPhoneNumber(int phoneNumber) {
-    	this.phoneNumber = phoneNumber;
-    }
 
     @Override
     public boolean isEnabled() {
@@ -171,6 +163,14 @@ public class User implements UserDetails {
 
     public void setMailAddressVerified(boolean mailAddressVerified) {
         this.mailAddressVerified = mailAddressVerified;
+    }
+    
+    public int getPhoneNumber() {
+    	return phoneNumber;
+    }
+    
+    public void setPhoneNumber(int phoneNumber) {
+    	this.phoneNumber = phoneNumber;
     }
 
     public Date getCreatedAt() {
