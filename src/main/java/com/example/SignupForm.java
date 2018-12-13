@@ -1,23 +1,24 @@
 package com.example;
 
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 
 public class SignupForm {
 
-    @Pattern(regexp="^\\w{3,32}$", message="size must be between 3 and 32, each character must be alphanumeric or underscore (A-Za-z0-9_)")
+	@NotEmpty(message="ユーザ名を入力してください。")
     private String username;
 
     @Size(min=8, max=255)
     private String password;
 
    
-    @Pattern(regexp = "^([\\w])+([\\w\\._-])*\\@([\\w])+([\\w\\._-])*\\.([a-zA-Z])+$")
+    @Pattern(regexp = "^([\\w])+([\\w\\._-])*\\@([\\w])+([\\w\\._-])*\\.([a-zA-Z])+$", message="メールアドレスを入力してください。")
     private String mailAddress;
 
-    
+    @Pattern(regexp="^[0-9]{10,11}$", message="電話番号を正しく入力してください")
 	private String phoneNumber;
 
 
