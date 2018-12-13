@@ -31,14 +31,14 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void registerAdmin(String username, String password, String mailAddress, int phoneNumber) {
+    public void registerAdmin(String username, String password, String mailAddress, String phoneNumber) {
         User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber);
         user.setAdmin(true);
         repository.save(user);
     }
 
     @Transactional
-    public void registerUser(String username, String password, String mailAddress, int phoneNumber) {
+    public void registerUser(String username, String password, String mailAddress, String phoneNumber) {
         User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber);
         repository.save(user);
     }

@@ -50,7 +50,7 @@ public class User implements UserDetails {
     private boolean mailAddressVerified;
     
     @Column(nullable = false, unique = true)
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Column(nullable = false)
     private boolean enabled;
@@ -67,7 +67,7 @@ public class User implements UserDetails {
     // JPA requirement
     protected User() {}
 
-    public User(String username, String password, String mailAddress, int phoneNumber) {
+    public User(String username, String password, String mailAddress, String phoneNumber) {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
@@ -165,11 +165,11 @@ public class User implements UserDetails {
         this.mailAddressVerified = mailAddressVerified;
     }
     
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
     	return phoneNumber;
     }
     
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
     	this.phoneNumber = phoneNumber;
     }
 

@@ -10,6 +10,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     public User findByMailAddress(String mailAddress);
     
-    public User findByPhoneNumber(int phoneNumber);
+    public User findByPhoneNumber(String phoneNumber);
 
 }

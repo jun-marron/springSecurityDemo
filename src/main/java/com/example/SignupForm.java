@@ -1,6 +1,6 @@
 package com.example;
 
-import javax.validation.constraints.Digits;
+
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -17,8 +17,8 @@ public class SignupForm {
     @Pattern(regexp = "^([\\w])+([\\w\\._-])*\\@([\\w])+([\\w\\._-])*\\.([a-zA-Z])+$")
     private String mailAddress;
 
-    @Digits(integer=11,fraction=0)
-	private int phoneNumber;
+    
+	private String phoneNumber;
 
 
     public String getUsername() {
@@ -45,11 +45,11 @@ public class SignupForm {
         this.mailAddress = mailAddress;
     }
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
