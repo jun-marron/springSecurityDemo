@@ -21,7 +21,16 @@
        <em th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}">Mail Address Error</em></p>
     <p><label for="phoneNumber">phoneNumber</label>:
        <input type="tel" id="phoneNumber" name="phoneNumber" />
-       <em th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber</em></p>   
+       <em th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber</em></p>
+    <p><label for="postalCode">postal code</label>:
+       <input type="text" id="postalCode" name="postalCode" />
+       <em th:if="${#fields.hasErrors('postalCode')}" th:errors="*{phoneNumber}">postalCode</em></p>
+    <p><label for="address">address</label>:
+       <input type="text" id="address" name="address" />
+       <em th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address</em></p>
+    <p><label for="birthday">birthday</label>:
+       <input type="date" id="birthday" name="birthday" />
+       <em th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday</em></p>            
     <p><input type="submit" value="Sign up" /></p>
 </form>
 

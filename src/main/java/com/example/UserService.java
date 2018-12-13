@@ -1,5 +1,6 @@
 package com.example;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,15 +32,15 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void registerAdmin(String username, String password, String mailAddress, String phoneNumber) {
-        User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber);
+    public void registerAdmin(String username, String password, String mailAddress, String phoneNumber, String postalCode, String address, int birthday) {
+        User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber, postalCode, address, birthday);
         user.setAdmin(true);
         repository.save(user);
     }
 
     @Transactional
-    public void registerUser(String username, String password, String mailAddress, String phoneNumber) {
-        User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber);
+    public void registerUser(String username, String password, String mailAddress, String phoneNumber, String postalCode, String address, int birthday) {
+        User user = new User(username, passwordEncoder.encode(password), mailAddress, phoneNumber, postalCode, address, birthday);
         repository.save(user);
     }
 

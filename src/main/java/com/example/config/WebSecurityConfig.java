@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .userDetailsService(userService)
             .passwordEncoder(passwordEncoder());
 
-        userService.registerAdmin("admin", "youmustchangethis", "admin@localhost", "phoneNumber");
+        userService.registerAdmin("admin", "youmustchangethis", "admin@localhost", "phoneNumber", "1234567", "address", 0);
     }
 
     @Bean

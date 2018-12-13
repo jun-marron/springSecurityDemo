@@ -51,6 +51,15 @@ public class User implements UserDetails {
     
     @Column(nullable = false, unique = true)
     private String phoneNumber;
+    
+    @Column(nullable = false, unique = true)
+    private String postalCode;
+    
+    @Column(nullable = false, unique = true)
+    private String address;
+    
+    @Column(nullable = false)
+    private int birthday;
 
     @Column(nullable = false)
     private boolean enabled;
@@ -67,12 +76,15 @@ public class User implements UserDetails {
     // JPA requirement
     protected User() {}
 
-    public User(String username, String password, String mailAddress, String phoneNumber) {
+    public User(String username, String password, String mailAddress, String phoneNumber, String postalCode, String address, int birthday) {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
         this.mailAddressVerified = false;
         this.phoneNumber = phoneNumber;
+        this.postalCode = postalCode;
+        this.address = address;
+        this.birthday = birthday;
         this.enabled = true;
         this.authorities = EnumSet.of(Authority.ROLE_USER);
     }
@@ -171,6 +183,30 @@ public class User implements UserDetails {
     
     public void setPhoneNumber(String phoneNumber) {
     	this.phoneNumber = phoneNumber;
+    }
+    
+    public String getPostalCode() {
+    	return postalCode;
+    }
+    
+    public void setPostalCode(String postalCode) {
+    	this.postalCode = postalCode;
+    }
+    
+    public String getAddress() {
+    	return address;
+    }
+    
+    public void setAddress(String address) {
+    	this.address = address;
+    }
+    
+    public int getBirthday() {
+    	return birthday;
+    }
+    
+    public void setBirthday(int birthday) {
+    	this.birthday = birthday;
     }
 
     public Date getCreatedAt() {
